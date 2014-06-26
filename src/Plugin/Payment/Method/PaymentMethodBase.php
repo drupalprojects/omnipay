@@ -11,6 +11,7 @@ use Drupal\Core\Extension\ModuleHandlerInterface;
 use Drupal\Core\Utility\Token;
 use Drupal\payment\Plugin\Payment\Method\PaymentMethodBase as GenericPaymentMethodBase;
 use Omnipay\Common\GatewayFactory;
+use Omnipay\Common\Message\RedirectResponseInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 /**
@@ -41,7 +42,16 @@ abstract class PaymentMethodBase extends GenericPaymentMethodBase {
    * {@inheritdoc}
    */
   public function doExecutePayment() {
-    return $this->gateway->purchase($this->getConfiguration());
+    $request =  $this->gateway->purchase($this->getConfiguration());
+    $response = $request->send();
+    $this->setConfiguration($this->gateway->getParameters());
+    $this->getPayment()->save();
+    if ($response->isRedirect() && $response instanceof RedirectResponseInterface) {
+      $response->redirect();
+    }
+    else {
+      $this->getPayment()->getPaymentType()->resumeContext();
+    }
   }
 
 }

@@ -15,6 +15,11 @@ use Drupal\payment\Entity\PaymentInterface;
 abstract class AbstractPaymentMethodBase extends PaymentMethodBase {
 
   /**
+   * @var \Omnipay\Common\AbstractGateway
+   */
+  protected $gateway;
+
+  /**
    * {@inheritdoc}
    */
   public function setPayment(PaymentInterface $payment) {
@@ -23,4 +28,3 @@ abstract class AbstractPaymentMethodBase extends PaymentMethodBase {
   }
 
 }
-
