@@ -1,0 +1,6 @@
+name: Omnipay
+description: Integrates the Omnipay library with Drupal.
+core: 8.x
+type: module
+dependencies:
+  - composer_manager

@@ -1,0 +1,5 @@
+{
+    "require": {
+        "omnipay/omnipay": "1.1.*"
+    }
+}
