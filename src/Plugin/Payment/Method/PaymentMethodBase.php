@@ -20,6 +20,8 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 abstract class PaymentMethodBase extends GenericPaymentMethodBase {
 
   /**
+   * The wrapped Omnipay gateway.
+   *
    * @var \Omnipay\Common\GatewayInterface
    */
   protected $gateway;
@@ -36,6 +38,13 @@ abstract class PaymentMethodBase extends GenericPaymentMethodBase {
    */
   public function getConfiguration() {
     return $this->gateway->getParameters();
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function setConfiguration(array $configuration) {
+    $this->gateway->initialize($configuration);
   }
 
   /**

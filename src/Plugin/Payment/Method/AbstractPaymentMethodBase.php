@@ -15,6 +15,8 @@ use Drupal\payment\Entity\PaymentInterface;
 abstract class AbstractPaymentMethodBase extends PaymentMethodBase {
 
   /**
+   * The wrapped Omnipay gateway.
+   *
    * @var \Omnipay\Common\AbstractGateway
    */
   protected $gateway;
