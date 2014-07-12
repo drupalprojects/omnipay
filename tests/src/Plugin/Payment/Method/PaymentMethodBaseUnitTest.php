@@ -12,6 +12,8 @@ use Omnipay\Common\GatewayInterface;
 
 /**
  * @coversDefaultClass \Drupal\omnipay\Plugin\Payment\Method\PaymentMethodBase
+ *
+ * @group Omnipay
  */
 class PaymentMethodBaseUnitTest extends UnitTestCase {
 
@@ -26,17 +28,6 @@ class PaymentMethodBaseUnitTest extends UnitTestCase {
    * @var \Drupal\omnipay\Plugin\Payment\Method\PaymentMethodBase
    */
   protected $paymentMethod;
-
-  /**
-   * {@inheritdoc}
-   */
-  public static function getInfo() {
-    return array(
-      'description' => '',
-      'name' => '\Drupal\omnipay\Tests\Plugin\Payment\Method\PaymentMethodBase unit test',
-      'group' => 'Omnipay',
-    );
-  }
 
   /**
    * {@inheritdoc}
