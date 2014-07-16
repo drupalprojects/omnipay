@@ -15,7 +15,7 @@ use Drupal\payment\Plugin\Payment\Method\PaymentMethodRefundPaymentInterface;
 /**
  * Provides a basis for payment methods that use \Omnipay\Common\AbstractGateway gateways.
  */
-class AbstractPaymentMethodBase extends PaymentMethodBase implements PaymentMethodRefundPaymentInterface, PaymentMethodCapturePaymentInterface {
+abstract class AbstractPaymentMethodBase extends PaymentMethodBase implements PaymentMethodRefundPaymentInterface, PaymentMethodCapturePaymentInterface {
 
   /**
    * The wrapped Omnipay gateway.
