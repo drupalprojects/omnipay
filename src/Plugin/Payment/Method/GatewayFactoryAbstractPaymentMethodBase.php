@@ -9,7 +9,7 @@ namespace Drupal\omnipay\Plugin\Payment\Method;
 
 use Drupal\Core\Extension\ModuleHandlerInterface;
 use Drupal\Core\Utility\Token;
-use Guzzle\Http\ClientInterface;
+use GuzzleHttp\ClientInterface;
 use Omnipay\Common\GatewayFactory;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
@@ -36,7 +36,7 @@ abstract class GatewayFactoryAbstractPaymentMethodBase extends AbstractPaymentMe
    *   The event dispatcher.
    * @param \Drupal\Core\Utility\Token $token
    *   The token API.
-   * @param \Guzzle\Http\ClientInterface $http_client
+   * @param \GuzzleHttp\ClientInterface $http_client
    *   The HTTP client.
    * @param \Symfony\Component\HttpFoundation\Request $request
    *   The request.
